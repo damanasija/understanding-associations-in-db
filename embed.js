@@ -65,9 +65,38 @@ harry.posts.push({
 harry.save(); //actually saves harry to database and save's harry's comments to the user's database
 
 /*
-  this doesn't save the post in posts collection. instead it just saves it in harry's array of posts/
+  this doesn't save the post in posts collection (though we can tweak it to do so). instead it just saves it in harry's array of posts/
   this is becuase we never did Post.create({title:"some title", content: "contentt goes here"}); for harry's post.
   meaning that we never saved it.
   An this is just the creation of embedded documents. i.e. a document inside a document. or in this case
   multiple documents can be nested/embedded inside the document.
+*/
+
+/*
+  To associate data by creating an entry in posts as well as in the a user's posts array, we need to first, create a new user.
+  the we need to create a new post. the we need to push the same newly created post in the user's post array.
+  and then save the user. this will create a 2 documents. the post in posts collections and a user with the embedded post in users document;
+*/
+
+
+Post.create({title: "Some title", content: "Content goes here"}, (err, savedPost) => {
+  if(err){
+    console.log(err);
+  } else {
+    harry.posts.push(savedPost);
+    harry.save((error, savedUser) => {
+      if(err){
+        console.log("Couldn't save harry.");
+      } else {
+        console.log("harry was saved");
+      }
+    });
+  }
+})
+
+/*
+  there are a lot more ways of doing this. Like we know the user is already saved. so the workflow for creating a new post is
+  1) save the user with an enpty posts array;
+  2) when a new post comes, save the post to the database.
+  3) in the callback of saving posts, find the user by id and add data to posts array by using Post.findByIdAndUpdate();
 */
