@@ -100,3 +100,34 @@ Post.create({title: "Some title", content: "Content goes here"}, (err, savedPost
   2) when a new post comes, save the post to the database.
   3) in the callback of saving posts, find the user by id and add data to posts array by using Post.findByIdAndUpdate();
 */
+
+
+/*
+  After embedding posts, the collections will look like this :-
+
+    Users collection:-
+    {
+      _id: ObjectId("some id"),
+      name: "Harry Potter",
+      email: "harry.potter@win.ru",
+      posts: [
+        { _id: ObjectId("Some Id"), title: "some title here", content: "some content here"},
+        { _id: ObjectId("Some Id"), title: "some title here", content: "some content here"},
+        { _id: ObjectId("Some Id"), title: "some title here", content: "some content here"},
+      ]
+    }
+
+    posts collection :-
+
+    { 
+      _id: ObjectId("Some Id"),
+      title: "some title here",
+      content: "some content here"
+    }
+    { 
+      _id: ObjectId("Some Id"),
+      title: "some title here",
+      content: "some content here"
+    }
+
+*/
