@@ -5,6 +5,38 @@
               ------------This just creates embedded documents------------------
 
 -------------------------------------------------------------------------------------------------------
+
+*/
+/*
+  After embedding posts, the collections will look like this :-
+
+    Users collection:-
+    {
+      _id: ObjectId("some id"),
+      name: "Harry Potter",
+      email: "harry.potter@win.ru",
+      posts: [
+        { _id: ObjectId("Some Id"), title: "some title here", content: "some content here"},
+        { _id: ObjectId("Some Id"), title: "some title here", content: "some content here"},
+        { _id: ObjectId("Some Id"), title: "some title here", content: "some content here"},
+      ]
+    }
+
+    posts collection :-
+
+    { 
+      _id: ObjectId("Some Id"),
+      title: "some title here",
+      content: "some content here"
+    }
+    { 
+      _id: ObjectId("Some Id"),
+      title: "some title here",
+      content: "some content here"
+    }
+
+*/
+/*
   We can add date to database by creating instances of the models we just created.
   for example, we first create a schema of how a user looks like.
   the we create a model of it where we actually bind the the schema to a collection in the database.
@@ -102,32 +134,3 @@ Post.create({title: "Some title", content: "Content goes here"}, (err, savedPost
 */
 
 
-/*
-  After embedding posts, the collections will look like this :-
-
-    Users collection:-
-    {
-      _id: ObjectId("some id"),
-      name: "Harry Potter",
-      email: "harry.potter@win.ru",
-      posts: [
-        { _id: ObjectId("Some Id"), title: "some title here", content: "some content here"},
-        { _id: ObjectId("Some Id"), title: "some title here", content: "some content here"},
-        { _id: ObjectId("Some Id"), title: "some title here", content: "some content here"},
-      ]
-    }
-
-    posts collection :-
-
-    { 
-      _id: ObjectId("Some Id"),
-      title: "some title here",
-      content: "some content here"
-    }
-    { 
-      _id: ObjectId("Some Id"),
-      title: "some title here",
-      content: "some content here"
-    }
-
-*/
