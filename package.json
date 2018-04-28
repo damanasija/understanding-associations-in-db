@@ -1,0 +1,22 @@
+{
+  "name": "associations",
+  "version": "1.0.0",
+  "description": "Understanding associations in db",
+  "main": "embed.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/damanasija/understanding-associations-in-db.git"
+  },
+  "author": "Damanjeet Asija",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/damanasija/understanding-associations-in-db/issues"
+  },
+  "homepage": "https://github.com/damanasija/understanding-associations-in-db#readme",
+  "dependencies": {
+    "mongoose": "^5.0.16"
+  }
+}
